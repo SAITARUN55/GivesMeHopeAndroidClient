@@ -3,7 +3,7 @@ GivesMeHopeAndroidClient
 
 ![Feature Graphic](https://cloud.githubusercontent.com/assets/9499097/4872524/1f5e740a-61e9-11e4-9165-8f48289c6a80.jpg)
 
-An unoffical Gives Me Hope Android client for educational purposes.
+An unofficial Gives Me Hope Android client for educational purposes.
 
 Download at https://play.google.com/store/apps/details?id=com.jparkie.givesmehope.
 
@@ -15,7 +15,7 @@ This source is open for anyone as an educational resource for learning. Some asp
 
 ## Development Process
 
-The first version of the application (1.0) was developed from October 31st, 2014 and released on November 1st, 2014. The overall development time was approximately eight hours. This application utilized RxJava (https://github.com/ReactiveX/RxJava) and RxAndroid (https://github.com/ReactiveX/RxAndroid) for its concurrency. The networking for the application was achieved through OkHttp 2.0 (http://square.github.io/okhttp/) as Gives Me Hope did not have an official REST API such that I could have used Retrofit. The image downloading and caching was facilitated by the use of Picasso (http://square.github.io/picasso/). Finally, the HTML parsing was achieved through Jsoup (http://jsoup.org/).
+The first version of the application (1.0) was developed from October 31st, 2014 and released on November 1st, 2014. The overall development time was approximately eight hours (A few hours were spent experimenting possible features and learning the newly updated AppCompat library). This application utilized RxJava (https://github.com/ReactiveX/RxJava) and RxAndroid (https://github.com/ReactiveX/RxAndroid) for the application's concurrency. The networking for the application was achieved through OkHttp 2.0 (http://square.github.io/okhttp/) as Gives Me Hope did not have an official REST API such that I could have used Retrofit. The image downloading and caching was facilitated by the use of Picasso (http://square.github.io/picasso/). Finally, the HTML parsing was achieved through Jsoup (http://jsoup.org/).
 
 ## Screen Shots
 ![1](https://cloud.githubusercontent.com/assets/9499097/4872520/132ad250-61e9-11e4-8137-940962de82e3.png)
