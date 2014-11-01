@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!-- Primary: Light Blue -->
+    <color name="primaryLightBlue100">#B3E5FC</color>
+    <color name="primaryLightBlue500">#03A9F4</color>
+    <color name="primaryLightBlue700">#0288D1</color>
+    
+    <!-- Accent: Pink -->
+    <color name="accentPinkA100">#FF80AB</color>
+    <color name="accentPinkA200">#FF4081</color>
+    <color name="accentPinkA400">#F50057</color>
+
+</resources>
