@@ -1,6 +1,5 @@
 package com.jparkie.givesmehope.fragments;
 
-import android.app.Activity;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
