@@ -126,7 +126,14 @@ public class HotFragment extends Fragment {
         if (mHotSubscription != null) {
             mHotSubscription.unsubscribe();
             mHotSubscription = null;
+            mHotAdapter = null;
         }
+
+        // Make sure that the views are garbage collected (Hopefully).
+        mSwipeRefreshLayout = null;
+        mListView = null;
+        mProgressBar = null;
+        mNetworkingErrorImageView = null;
 
         super.onDestroyView();
     }

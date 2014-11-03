@@ -124,7 +124,14 @@ public class TrendingFragment extends Fragment {
         if (mTrendingSubscription != null) {
             mTrendingSubscription.unsubscribe();
             mTrendingSubscription = null;
+            mTrendingAdapter = null;
         }
+
+        // Make sure that the views are garbage collected (Hopefully).
+        mSwipeRefreshLayout = null;
+        mListView = null;
+        mProgressBar = null;
+        mNetworkingErrorImageView = null;
 
         super.onDestroyView();
     }
