@@ -11,7 +11,7 @@ This Android application allows the user to browse http://mobile.givesmehope.com
 
 Disclaimer: This application was developed by an individual who does not have any affiliation with the content providers Gives Me Hope and affiliates. This application is for educational purposes only. Please email park.jacob.96@gmail.com with any concerns or issues.
 
-## The Source
+## Source
 
 This source is open for anyone as an educational resource for learning. Some aspects of the source have been commented. Methods which are variable to change or breakage were not commented thoroughly. Finally, please note that I have only but a month of actual Android development experience such that the professionalism of the application and the accuracy of some of my comments may be limited.
 
