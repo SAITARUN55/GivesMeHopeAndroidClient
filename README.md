@@ -1,4 +1,4 @@
-GivesMeHopeAndroidClient (Version 2.0)
+GivesMeHopeAndroidClient (Version 2.0.+)
 ========================
 
 ![Feature Graphic](https://cloud.githubusercontent.com/assets/9499097/6401496/f288cb8c-bdce-11e4-9d6e-1121e2b3c02c.jpg)
@@ -11,7 +11,7 @@ Disclaimer: This application was developed by an individual who does not have an
 
 ### APK Download
 
-[**Direct Download**: (Version 2.0)](GivesMeHope_3.apk)
+[**Direct Download**: (Version 2.0.1)](AnthologyForGMH_4.apk)
 
 <a href="https://play.google.com/store/apps/details?id=com.jparkie.givesmehope">
   <img alt="Get it on Google Play"
