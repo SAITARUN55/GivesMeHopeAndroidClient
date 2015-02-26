@@ -98,6 +98,8 @@ public class MainActivity extends ActionBarActivity implements MainView {
     @Override
     public void initializeMainToolbar() {
         mMainToolbar.setTitleTextAppearance(this, R.style.ToolbarTextAppearance);
+        mMainToolbar.setLogo(R.mipmap.ic_logo);
+
         setSupportActionBar(mMainToolbar);
 
         actionSetTitle(mMainViewPager.getCurrentItem());
