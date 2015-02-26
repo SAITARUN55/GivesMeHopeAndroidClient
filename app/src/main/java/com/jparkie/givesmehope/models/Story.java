@@ -145,9 +145,9 @@ public class Story implements Parcelable {
         outputParcel.writeString(mImageUrl);
     }
 
-    public static void getParcelable(Bundle savedInstanceState, Story story) {
+    public static Story getParcelable(Bundle savedInstanceState) {
         if (savedInstanceState != null) {
-            story = savedInstanceState.getParcelable(PARCELABLE_KEY);
+            return savedInstanceState.getParcelable(PARCELABLE_KEY);
         } else {
             throw new IllegalArgumentException(TAG + ": \'getParcelable\' Method has null argument: savedInstanceState.");
         }
@@ -156,8 +156,6 @@ public class Story implements Parcelable {
     public static void putParcelable(Bundle savedInstanceState, Story story) {
         if (savedInstanceState != null && story != null) {
             savedInstanceState.putParcelable(PARCELABLE_KEY, story);
-        } else {
-            throw new IllegalArgumentException(TAG + ": \'putParcelable\' Method has null arguments: savedInstanceState and/or story.");
         }
     }
 }

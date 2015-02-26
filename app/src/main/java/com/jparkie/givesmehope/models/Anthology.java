@@ -78,9 +78,9 @@ public class Anthology implements Parcelable {
         outputParcel.writeString(mNextPageUrl);
     }
 
-    public static void getParcelable(Bundle savedInstanceState, Anthology anthology) {
+    public static Anthology getParcelable(Bundle savedInstanceState) {
         if (savedInstanceState != null) {
-            anthology = savedInstanceState.getParcelable(PARCELABLE_KEY);
+            return savedInstanceState.getParcelable(PARCELABLE_KEY);
         } else {
             throw new IllegalArgumentException(TAG + ": \'getParcelable\' Method has null argument: savedInstanceState.");
         }
@@ -89,8 +89,6 @@ public class Anthology implements Parcelable {
     public static void putParcelable(Bundle savedInstanceState, Anthology anthology) {
         if (savedInstanceState != null && anthology != null) {
             savedInstanceState.putParcelable(PARCELABLE_KEY, anthology);
-        } else {
-            throw new IllegalArgumentException(TAG + ": \'putParcelable\' Method has null arguments: savedInstanceState and/or anthology.");
         }
     }
 }

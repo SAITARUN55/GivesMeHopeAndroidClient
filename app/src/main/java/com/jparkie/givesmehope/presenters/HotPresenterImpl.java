@@ -25,7 +25,6 @@ import rx.Observable;
 import rx.Observer;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action0;
 import rx.schedulers.Schedulers;
 
 public class HotPresenterImpl implements HotPresenter {
@@ -40,6 +39,8 @@ public class HotPresenterImpl implements HotPresenter {
     private Observer<Anthology> mGetHotAnthologyObserver = new Observer<Anthology>() {
         @Override
         public void onCompleted() {
+            mGetHotAnthologyObservable = null;
+
             if (mHotAdapter != null) {
                 mHotAdapter.addStories(mHotAnthology.getStories());
             }
@@ -53,6 +54,8 @@ public class HotPresenterImpl implements HotPresenter {
 
         @Override
         public void onError(Throwable e) {
+            mGetHotAnthologyObservable = null;
+
             if (BuildConfig.DEBUG) {
                 e.printStackTrace();
             }
@@ -68,7 +71,8 @@ public class HotPresenterImpl implements HotPresenter {
 
         @Override
         public void onNext(Anthology anthology) {
-            mHotAnthology = anthology;
+            mHotAnthology.setNextPageUrl(anthology.getNextPageUrl());
+            mHotAnthology.getStories().addAll(anthology.getStories());
         }
     };
 
@@ -89,10 +93,11 @@ public class HotPresenterImpl implements HotPresenter {
         mHotView.initializeHotRecyclerView();
 
         mHotView.hideHotSwipeRefreshLayout();
-        mHotView.showHotProgressBar();
         mHotView.hideNetworkingErrorImageView();
 
         if (savedInstanceState == null) {
+            mHotView.showHotProgressBar();
+
             initializeInstanceState();
 
             pullHotAnthologyFromNetwork();
@@ -195,7 +200,7 @@ public class HotPresenterImpl implements HotPresenter {
     }
 
     private void restoreInstanceState(Bundle savedInstanceState) {
-        Anthology.getParcelable(savedInstanceState, mHotAnthology);
+        mHotAnthology = Anthology.getParcelable(savedInstanceState);
 
         mHotAdapter = new HotAdapter(mHotView.getContext(), mHotAnthology.getStories());
         mHotView.setAdapterForRecyclerView(mHotAdapter);
@@ -213,12 +218,6 @@ public class HotPresenterImpl implements HotPresenter {
                 .getHotAnthology(mHotAnthology.getNextPageUrl())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnTerminate(new Action0() {
-                    @Override
-                    public void call() {
-                        mGetHotAnthologyObservable = null;
-                    }
-                })
                 .cache();
 
         mGetHotAnthologySubscription = mGetHotAnthologyObservable

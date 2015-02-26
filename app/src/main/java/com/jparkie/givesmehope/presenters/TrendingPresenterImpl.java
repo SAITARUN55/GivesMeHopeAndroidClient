@@ -25,7 +25,6 @@ import rx.Observable;
 import rx.Observer;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action0;
 import rx.schedulers.Schedulers;
 
 public class TrendingPresenterImpl implements TrendingPresenter {
@@ -40,6 +39,8 @@ public class TrendingPresenterImpl implements TrendingPresenter {
     private Observer<Anthology> mGetTrendingAnthologyObserver = new Observer<Anthology>() {
         @Override
         public void onCompleted() {
+            mGetTrendingAnthologyObservable = null;
+
             if (mTrendingAdapter != null) {
                 mTrendingAdapter.addStories(mTrendingAnthology.getStories());
             }
@@ -53,6 +54,8 @@ public class TrendingPresenterImpl implements TrendingPresenter {
 
         @Override
         public void onError(Throwable e) {
+            mGetTrendingAnthologyObservable = null;
+
             if (BuildConfig.DEBUG) {
                 e.printStackTrace();
             }
@@ -68,7 +71,8 @@ public class TrendingPresenterImpl implements TrendingPresenter {
 
         @Override
         public void onNext(Anthology anthology) {
-            mTrendingAnthology = anthology;
+            mTrendingAnthology.setNextPageUrl(anthology.getNextPageUrl());
+            mTrendingAnthology.getStories().addAll(anthology.getStories());
         }
     };
 
@@ -89,10 +93,11 @@ public class TrendingPresenterImpl implements TrendingPresenter {
         mTrendingView.initializeTrendingRecyclerView();
 
         mTrendingView.hideTrendingSwipeRefreshLayout();
-        mTrendingView.showTrendingProgressBar();
         mTrendingView.hideNetworkingErrorImageView();
 
         if (savedInstanceState == null) {
+            mTrendingView.showTrendingProgressBar();
+
             initializeInstanceState();
 
             pullTrendingAnthologyFromNetwork();
@@ -195,7 +200,7 @@ public class TrendingPresenterImpl implements TrendingPresenter {
     }
 
     private void restoreInstanceState(Bundle savedInstanceState) {
-        Anthology.getParcelable(savedInstanceState, mTrendingAnthology);
+        mTrendingAnthology = Anthology.getParcelable(savedInstanceState);
 
         mTrendingAdapter = new TrendingAdapter(mTrendingAnthology.getStories());
         mTrendingView.setAdapterForRecyclerView(mTrendingAdapter);
@@ -213,12 +218,6 @@ public class TrendingPresenterImpl implements TrendingPresenter {
                 .getTrendingAnthology(mTrendingAnthology.getNextPageUrl())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnTerminate(new Action0() {
-                    @Override
-                    public void call() {
-                        mGetTrendingAnthologyObservable = null;
-                    }
-                })
                 .cache();
 
         mGetTrendingAnthologySubscription = mGetTrendingAnthologyObservable

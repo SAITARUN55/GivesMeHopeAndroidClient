@@ -37,6 +37,8 @@ public class VotePresenterImpl implements VotePresenter {
     private Observer<Story> mGetVoteStoryObserver = new Observer<Story>() {
         @Override
         public void onCompleted() {
+            mGetVoteStoryObservable = null;
+
             mVoteView.setVoteImageView(mVoteStory.getImageUrl());
             mVoteView.setVoteFooterTextView(mVoteStory.getFooter());
 
@@ -48,6 +50,8 @@ public class VotePresenterImpl implements VotePresenter {
 
         @Override
         public void onError(Throwable e) {
+            mGetVoteStoryObservable = null;
+
             if (BuildConfig.DEBUG) {
                 e.printStackTrace();
             }
@@ -81,10 +85,11 @@ public class VotePresenterImpl implements VotePresenter {
 
         mVoteView.hideVoteSwipeRefreshLayout();
         mVoteView.hideVoteCardView();
-        mVoteView.showVoteProgressBar();
         mVoteView.hideNetworkingErrorImageView();
 
         if (savedInstanceState == null) {
+            mVoteView.showVoteProgressBar();
+
             pullVoteStoryFromNetwork();
         } else {
             restoreInstanceState(savedInstanceState);
@@ -243,7 +248,7 @@ public class VotePresenterImpl implements VotePresenter {
     }
 
     private void restoreInstanceState(Bundle savedInstanceState) {
-        Story.getParcelable(savedInstanceState, mVoteStory);
+        mVoteStory = Story.getParcelable(savedInstanceState);
 
         if (mVoteStory != null) {
             mVoteView.setVoteImageView(mVoteStory.getImageUrl());
@@ -263,12 +268,6 @@ public class VotePresenterImpl implements VotePresenter {
                 .getVoteStory(ApiModule.VOTE_URL)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnTerminate(new Action0() {
-                    @Override
-                    public void call() {
-                        mGetVoteStoryObservable = null;
-                    }
-                })
                 .cache();
 
         mGetVoteStorySubscription = mGetVoteStoryObservable
