@@ -1,15 +1,22 @@
 GivesMeHopeAndroidClient (Version 2.0)
 ========================
 
-![Feature Graphic](https://cloud.githubusercontent.com/assets/9499097/4872524/1f5e740a-61e9-11e4-9165-8f48289c6a80.jpg)
+![Feature Graphic](https://cloud.githubusercontent.com/assets/9499097/6401496/f288cb8c-bdce-11e4-9d6e-1121e2b3c02c.jpg)
 
 An unofficial Gives Me Hope Android client for educational purposes.
-
-Download at https://play.google.com/store/apps/details?id=com.jparkie.givesmehope.
 
 This Android application allows the user to browse http://mobile.givesmehope.com/. Thus, it allows them to view the hottest and trending stories, to vote on new stories, and submit their own stories.
 
 Disclaimer: This application was developed by an individual who does not have any affiliation with the content providers Gives Me Hope and affiliates. This application is for educational purposes only. Please email park.jacob.96@gmail.com with any concerns or issues.
+
+### APK Download
+
+[**Direct Download**: (Version 2.0)](GivesMeHope_3.apk)
+
+<a href="https://play.google.com/store/apps/details?id=com.jparkie.givesmehope">
+  <img alt="Get it on Google Play"
+       src="https://developer.android.com/images/brand/en_generic_rgb_wo_45.png" />
+</a>
 
 ## Source
 
