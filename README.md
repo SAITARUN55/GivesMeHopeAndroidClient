@@ -11,7 +11,7 @@ Disclaimer: This application was developed by an individual who does not have an
 
 ### APK Download
 
-[**Direct Download**: (Version 2.0)](GivesMeHopeAndroidClient/blob/new-v2/GivesMeHope_3.apk?raw=true)
+[**Direct Download**: (Version 2.0)](GivesMeHope_3.apk)
 
 <a href="https://play.google.com/store/apps/details?id=com.jparkie.givesmehope">
   <img alt="Get it on Google Play"
