@@ -17,7 +17,15 @@ This source is open for anyone as an educational resource for learning. This bra
 
 ## Development Process
 
-The second version of the application (2.0) was developed from February 25th, 2015 and pushed to GitHub on February 26th, 2015. The overall development time was approximately twelve hours. This second version was utilized to experiment a suitable modern architecture and development stack for Android development for me. Thus, the application utilizes the Model-View-Presenter architectural pattern. I utilized some design patterns like factories to enfore default or initial states to avoid null objects, and an interpreter to parse the HTML from http://mobile.givesmehope.com/ to their respective POJO models. All the `Interpreter`s, `Presenter`s, `Service`s, and `View`s were defined with extendable interfaces to enforce a contract of how implementers should function. This potentially allows ease of refactorability or mockability. Meanwhile, I utilized Dagger 1 for dependency injection of my `Interpreter`s, `Presenter`s, and `Service`s. For further modularity, instead of using listeners for communications between `View`s, I utilized Otto as an event bus. Finally, the repository by which data would be mapped to models was accomplished utilizing RxJava to create Observable APIs whose consumers can specify the concurrency while allowing the data to be highly composable as it is streamed to subscribers.
+The second version of the application (2.0) was developed from February 25th, 2015 and pushed to GitHub on February 26th, 2015. The overall development time was approximately twelve hours. This second version was utilized to experiment a suitable modern architecture and development stack for Android development for me. 
+
+Thus, the application utilizes the Model-View-Presenter architectural pattern. I utilized some design patterns like factories to enfore default or initial states to avoid null objects, and an interpreter to parse the HTML from http://mobile.givesmehope.com/ to their respective POJO models. 
+
+All the `Interpreter`s, `Presenter`s, `Service`s, and `View`s were defined with extendable interfaces to enforce a contract of how implementers should function. This potentially allows ease of refactorability or mockability. 
+
+Meanwhile, I utilized Dagger 1 for dependency injection of my `Interpreter`s, `Presenter`s, and `Service`s. For further modularity, instead of using listeners for communications between `View`s, I utilized Otto as an event bus. 
+
+Finally, the repository by which data would be mapped to models was accomplished utilizing RxJava to create Observable APIs whose consumers can specify the concurrency while allowing the data to be highly composable as it is streamed to subscribers.
 
 I experimented with Stetho to monitor network calls using Chrome Dev Tools. This branch is functionally, yet I need to add different build variants for debugging and write some tests.
 
