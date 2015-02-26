@@ -1,7 +1,7 @@
 GivesMeHopeAndroidClient (Version 2.0)
 ========================
 
-![Feature Graphic](https://cloud.githubusercontent.com/assets/9499097/4872524/1f5e740a-61e9-11e4-9165-8f48289c6a80.jpg)
+![Feature Graphic](https://cloud.githubusercontent.com/assets/9499097/6401496/f288cb8c-bdce-11e4-9d6e-1121e2b3c02c.jpg)
 
 An unofficial Gives Me Hope Android client for educational purposes.
 
