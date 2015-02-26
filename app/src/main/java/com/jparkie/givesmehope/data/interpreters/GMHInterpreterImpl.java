@@ -1,7 +1,5 @@
 package com.jparkie.givesmehope.data.interpreters;
 
-import android.text.TextUtils;
-
 import com.jparkie.givesmehope.data.factories.DefaultFactory;
 import com.jparkie.givesmehope.models.Anthology;
 import com.jparkie.givesmehope.models.Story;
