@@ -68,9 +68,11 @@ public class HotPresenterImpl implements HotPresenter {
         @Override
         public void onNext(Anthology anthology) {
             mHotAnthology.setNextPageUrl(anthology.getNextPageUrl());
-            mHotAnthology.getStories().addAll(anthology.getStories());
+
             if (mHotAdapter != null) {
                 mHotAdapter.addStories(anthology.getStories());
+
+                mHotAnthology.setStories(mHotAdapter.getStories());
             }
         }
     };
@@ -230,6 +232,8 @@ public class HotPresenterImpl implements HotPresenter {
         }
 
         if (mGetHotAnthologyObservable != null) {
+            mIsLoading = true;
+
             mGetHotAnthologySubscription = mGetHotAnthologyObservable
                     .subscribe(mGetHotAnthologyObserver);
         }

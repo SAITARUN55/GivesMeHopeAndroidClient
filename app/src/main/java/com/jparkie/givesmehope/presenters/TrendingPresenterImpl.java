@@ -68,9 +68,11 @@ public class TrendingPresenterImpl implements TrendingPresenter {
         @Override
         public void onNext(Anthology anthology) {
             mTrendingAnthology.setNextPageUrl(anthology.getNextPageUrl());
-            mTrendingAnthology.getStories().addAll(anthology.getStories());
+
             if (mTrendingAdapter != null) {
                 mTrendingAdapter.addStories(anthology.getStories());
+
+                mTrendingAnthology.setStories(mTrendingAdapter.getStories());
             }
         }
     };
@@ -230,6 +232,8 @@ public class TrendingPresenterImpl implements TrendingPresenter {
         }
 
         if (mGetTrendingAnthologyObservable != null) {
+            mIsLoading = true;
+
             mGetTrendingAnthologySubscription = mGetTrendingAnthologyObservable
                     .subscribe(mGetTrendingAnthologyObserver);
         }
