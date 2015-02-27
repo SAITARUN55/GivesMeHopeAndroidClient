@@ -15,6 +15,8 @@ import dagger.Provides;
         complete = false
 )
 public final class TrendingModule {
+    public static final String TAG = TrendingModule.class.getSimpleName();
+
     private TrendingView mTrendingView;
 
     public TrendingModule(TrendingView trendingView) {
