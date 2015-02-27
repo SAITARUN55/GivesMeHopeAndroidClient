@@ -4,10 +4,6 @@ import android.app.Application;
 import android.content.Context;
 
 import com.facebook.stetho.Stetho;
-import com.jparkie.givesmehope.modules.GMHModule;
-
-import java.util.Arrays;
-import java.util.List;
 
 import dagger.ObjectGraph;
 
@@ -36,14 +32,8 @@ public class GMHApplication extends Application {
         return mObjectGraph.plus(modules);
     }
 
-    public List<Object> getModules() {
-        return Arrays.<Object>asList(
-                new GMHModule(this)
-        );
-    }
-
     private void initializeObjectGraph() {
-        mObjectGraph = buildInitialObjectGraph(getModules().toArray());
+        mObjectGraph = buildInitialObjectGraph(Modules.getModules(this).toArray());
         mObjectGraph.inject(this);
     }
 
