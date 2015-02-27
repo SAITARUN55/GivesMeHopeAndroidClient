@@ -51,6 +51,6 @@ public class HotAdapter extends RecyclerView.Adapter<HotViewHolder> {
 
         mStories.addAll(newStories);
 
-        notifyItemRangeChanged(currentSize, amountInserted);
+        notifyItemRangeInserted(currentSize, amountInserted);
     }
 }

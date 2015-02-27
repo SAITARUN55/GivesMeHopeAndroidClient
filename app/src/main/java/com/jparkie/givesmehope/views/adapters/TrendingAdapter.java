@@ -48,6 +48,6 @@ public class TrendingAdapter extends RecyclerView.Adapter<TrendingViewHolder> {
 
         mStories.addAll(newStories);
 
-        notifyItemRangeChanged(currentSize, amountInserted);
+        notifyItemRangeInserted(currentSize, amountInserted);
     }
 }
