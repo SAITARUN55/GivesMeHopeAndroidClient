@@ -38,8 +38,20 @@ public final class GMHServiceImpl implements GMHService {
                 })
                 .flatMap(new Func1<String, Observable<Anthology>>() {
                     @Override
-                    public Observable<Anthology> call(String unparsedHtml) {
-                        return Observable.just(mInterpreter.interpretHotAnthologyFromString(unparsedHtml));
+                    public Observable<Anthology> call(final String unparsedHtml) {
+                        return Observable.create(new Observable.OnSubscribe<Anthology>() {
+                            @Override
+                            public void call(Subscriber<? super Anthology> subscriber) {
+                                try {
+                                    if (!subscriber.isUnsubscribed()) {
+                                        subscriber.onNext(mInterpreter.interpretHotAnthologyFromString(unparsedHtml));
+                                    }
+                                    subscriber.onCompleted();
+                                } catch (Throwable e) {
+                                    subscriber.onError(e);
+                                }
+                            }
+                        });
                     }
                 });
     }
@@ -55,8 +67,20 @@ public final class GMHServiceImpl implements GMHService {
                 })
                 .flatMap(new Func1<String, Observable<Anthology>>() {
                     @Override
-                    public Observable<Anthology> call(String unparsedHtml) {
-                        return Observable.just(mInterpreter.interpretTrendingAnthologyFromString(unparsedHtml));
+                    public Observable<Anthology> call(final String unparsedHtml) {
+                        return Observable.create(new Observable.OnSubscribe<Anthology>() {
+                            @Override
+                            public void call(Subscriber<? super Anthology> subscriber) {
+                                try {
+                                    if (!subscriber.isUnsubscribed()) {
+                                        subscriber.onNext(mInterpreter.interpretTrendingAnthologyFromString(unparsedHtml));
+                                    }
+                                    subscriber.onCompleted();
+                                } catch (Throwable e) {
+                                    subscriber.onError(e);
+                                }
+                            }
+                        });
                     }
                 });
     }
@@ -72,8 +96,20 @@ public final class GMHServiceImpl implements GMHService {
                 })
                 .flatMap(new Func1<String, Observable<Story>>() {
                     @Override
-                    public Observable<Story> call(String unparsedHtml) {
-                        return Observable.just(mInterpreter.interpretVoteStoryFromString(unparsedHtml));
+                    public Observable<Story> call(final String unparsedHtml) {
+                        return Observable.create(new Observable.OnSubscribe<Story>() {
+                            @Override
+                            public void call(Subscriber<? super Story> subscriber) {
+                                try {
+                                    if (!subscriber.isUnsubscribed()) {
+                                        subscriber.onNext(mInterpreter.interpretVoteStoryFromString(unparsedHtml));
+                                    }
+                                    subscriber.onCompleted();
+                                } catch (Throwable e) {
+                                    subscriber.onError(e);
+                                }
+                            }
+                        });
                     }
                 });
     }
