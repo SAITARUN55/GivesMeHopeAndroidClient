@@ -41,10 +41,6 @@ public class TrendingPresenterImpl implements TrendingPresenter {
         public void onCompleted() {
             mGetTrendingAnthologyObservable = null;
 
-            if (mTrendingAdapter != null) {
-                mTrendingAdapter.addStories(mTrendingAnthology.getStories());
-            }
-
             mIsLoading = false;
 
             mTrendingView.hideTrendingProgressBar();
@@ -73,6 +69,9 @@ public class TrendingPresenterImpl implements TrendingPresenter {
         public void onNext(Anthology anthology) {
             mTrendingAnthology.setNextPageUrl(anthology.getNextPageUrl());
             mTrendingAnthology.getStories().addAll(anthology.getStories());
+            if (mTrendingAdapter != null) {
+                mTrendingAdapter.addStories(anthology.getStories());
+            }
         }
     };
 

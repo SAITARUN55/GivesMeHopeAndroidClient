@@ -41,10 +41,6 @@ public class HotPresenterImpl implements HotPresenter {
         public void onCompleted() {
             mGetHotAnthologyObservable = null;
 
-            if (mHotAdapter != null) {
-                mHotAdapter.addStories(mHotAnthology.getStories());
-            }
-
             mIsLoading = false;
 
             mHotView.hideHotProgressBar();
@@ -73,6 +69,9 @@ public class HotPresenterImpl implements HotPresenter {
         public void onNext(Anthology anthology) {
             mHotAnthology.setNextPageUrl(anthology.getNextPageUrl());
             mHotAnthology.getStories().addAll(anthology.getStories());
+            if (mHotAdapter != null) {
+                mHotAdapter.addStories(anthology.getStories());
+            }
         }
     };
 
