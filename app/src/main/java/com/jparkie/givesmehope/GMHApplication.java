@@ -32,9 +32,12 @@ public class GMHApplication extends Application {
         return mObjectGraph.plus(modules);
     }
 
-    private void initializeObjectGraph() {
+    public void initializeObjectGraph() {
         mObjectGraph = buildInitialObjectGraph(Modules.getModules(this).toArray());
-        mObjectGraph.inject(this);
+    }
+
+    public void setObjectGraph(Object... modules) {
+        mObjectGraph = buildScopedObjectGraph(modules);
     }
 
     private void initializeStetho() {
