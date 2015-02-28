@@ -13,6 +13,7 @@ import dagger.Module;
 import dagger.Provides;
 
 @Module(
+        addsTo = GMHModule.class,
         complete = false,
         library = true,
         overrides = true

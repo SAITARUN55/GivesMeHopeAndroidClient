@@ -11,6 +11,7 @@ import dagger.Module;
 import dagger.Provides;
 
 @Module(
+        addsTo = GMHModule.class,
         library = true,
         overrides = true
 )
