@@ -34,7 +34,7 @@ Meanwhile, I utilized Dagger 1 for dependency injection of my `Interpreter`s, `P
 
 Finally, the repository by which data would be mapped to models was accomplished utilizing RxJava to create Observable APIs whose consumers can specify the concurrency while allowing the data to be highly composable as it is streamed to subscribers.
 
-I experimented with Stetho to monitor network calls using Chrome Dev Tools. This branch is functionally, yet I need to add different build variants for debugging and write some tests.
+I experimented with Stetho to monitor network calls using Chrome Dev Tools. This branch is functionally. ~~yet I need to add different build variants for debugging and write some tests.~~ *Edit: I have unit tests for the `data` package to write left.*
 
 ### Libraries
 
