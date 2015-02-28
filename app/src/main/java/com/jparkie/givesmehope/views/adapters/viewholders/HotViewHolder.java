@@ -10,17 +10,21 @@ import com.jparkie.givesmehope.R;
 import com.jparkie.givesmehope.models.Story;
 import com.squareup.picasso.Picasso;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+
 public class HotViewHolder extends RecyclerView.ViewHolder {
     public static final String TAG = HotViewHolder.class.getSimpleName();
 
-    private ImageView mImageView;
-    private TextView mFooterTextView;
+    @InjectView(R.id.imageImageView)
+    ImageView mImageView;
+    @InjectView(R.id.imageFooterTextView)
+    TextView mFooterTextView;
 
     public HotViewHolder(View itemView) {
         super(itemView);
 
-        mImageView = (ImageView)itemView.findViewById(R.id.imageImageView);
-        mFooterTextView = (TextView)itemView.findViewById(R.id.imageFooterTextView);
+        ButterKnife.inject(this, itemView);
     }
 
     public void bindStoryToView(Context context, Story story) {

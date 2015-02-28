@@ -8,19 +8,23 @@ import com.jparkie.givesmehope.R;
 import com.jparkie.givesmehope.models.Story;
 import com.jparkie.givesmehope.views.TrendingView;
 
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+
 public class TrendingViewHolder extends RecyclerView.ViewHolder {
     public static final String TAG = TrendingView.class.getSimpleName();
 
-    private TextView mTitleTextView;
-    private TextView mStoryTextView;
-    private TextView mFooterTextView;
+    @InjectView(R.id.textTitleTextView)
+    TextView mTitleTextView;
+    @InjectView(R.id.textStoryTextView)
+    TextView mStoryTextView;
+    @InjectView(R.id.textFooterTextView)
+    TextView mFooterTextView;
 
     public TrendingViewHolder(View itemView) {
         super(itemView);
 
-        mTitleTextView = (TextView)itemView.findViewById(R.id.textTitleTextView);
-        mStoryTextView = (TextView)itemView.findViewById(R.id.textStoryTextView);
-        mFooterTextView = (TextView)itemView.findViewById(R.id.textFooterTextView);
+        ButterKnife.inject(this, itemView);
     }
 
     public void bindStoryToView(Story story) {
