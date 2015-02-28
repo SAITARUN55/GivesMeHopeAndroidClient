@@ -247,6 +247,7 @@ public class HotPresenterImpl implements HotPresenter {
 
     private boolean conditionPullNextAnthology(int position) {
         return !mIsLoading
+                && mHotAnthology != null
                 && !mHotAnthology.getNextPageUrl().equals(DefaultFactory.Anthology.EMPTY_FIELD_NEXT_PAGE_URL)
                 && position > mHotAdapter.getItemCount() - ApiModule.PULL_TOLERANCE;
     }

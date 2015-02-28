@@ -247,6 +247,7 @@ public class TrendingPresenterImpl implements TrendingPresenter {
 
     private boolean conditionPullNextAnthology(int position) {
         return !mIsLoading
+                && mTrendingAnthology != null
                 && !mTrendingAnthology.getNextPageUrl().equals(DefaultFactory.Anthology.EMPTY_FIELD_NEXT_PAGE_URL)
                 && position > mTrendingAdapter.getItemCount() - ApiModule.PULL_TOLERANCE;
     }
