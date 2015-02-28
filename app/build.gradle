@@ -5,11 +5,16 @@ android {
     buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "com.jparkie.givesmehope"
         minSdkVersion 14
         targetSdkVersion 21
+
         versionCode 5
         versionName "2.0.2"
+
+        applicationId "com.jparkie.givesmehope"
+
+        testApplicationId "com.jparkie.givesmehope.tests"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         debug {
@@ -20,6 +25,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    packagingOptions {
+        exclude 'LICENSE.txt'
     }
 }
 
@@ -64,4 +72,8 @@ dependencies {
     // Debugging:
     compile 'com.facebook.stetho:stetho:1.0.0'
     compile 'com.facebook.stetho:stetho-okhttp:1.0.0'
+
+    // Testing:
+    androidTestCompile 'com.android.support.test.espresso:espresso-core:2.0'
+    androidTestCompile 'com.android.support.test:testing-support-lib:0.1'
 }
