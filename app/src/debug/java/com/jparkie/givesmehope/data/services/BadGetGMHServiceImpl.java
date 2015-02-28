@@ -8,10 +8,10 @@ import com.squareup.okhttp.Response;
 
 import rx.Observable;
 
-public class BadGMHServiceImpl implements GMHService {
-    public static final String TAG = BadGMHServiceImpl.class.getSimpleName();
+public class BadGetGMHServiceImpl implements GMHService {
+    public static final String TAG = BadGetGMHServiceImpl.class.getSimpleName();
 
-    public BadGMHServiceImpl() {}
+    public BadGetGMHServiceImpl() {}
 
     @Override
     public Observable<Anthology> getHotAnthology(String requestUrl) {
@@ -30,16 +30,16 @@ public class BadGMHServiceImpl implements GMHService {
 
     @Override
     public Observable<Response> postSubmitStory(String submitName, String submitLocation, String submitTitle, String submitStory, String submitCategory) {
-        return Observable.error(new NetworkErrorException(TAG + ": postSubmitStory() - Simulated Bad Network Request."));
+        return Observable.empty();
     }
 
     @Override
     public Observable<Response> postVoteStoryDown(String postId) {
-        return Observable.error(new NetworkErrorException(TAG + ": postVoteStoryDown() - Simulated Bad Network Request."));
+        return Observable.empty();
     }
 
     @Override
     public Observable<Response> postVoteStoryUp(String postId) {
-        return Observable.error(new NetworkErrorException(TAG + ": postVoteStoryUp() - Simulated Bad Network Request."));
+        return Observable.empty();
     }
 }

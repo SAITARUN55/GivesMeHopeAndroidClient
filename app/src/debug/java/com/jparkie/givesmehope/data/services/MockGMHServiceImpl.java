@@ -62,17 +62,17 @@ public class MockGMHServiceImpl implements GMHService {
 
     @Override
     public Observable<Response> postSubmitStory(String submitName, String submitLocation, String submitTitle, String submitStory, String submitCategory) {
-        return Observable.just(new Response.Builder().code(200).build());
+        return Observable.empty();
     }
 
     @Override
     public Observable<Response> postVoteStoryDown(String postId) {
-        return Observable.just(new Response.Builder().code(200).build());
+        return Observable.empty();
     }
 
     @Override
     public Observable<Response> postVoteStoryUp(String postId) {
-        return Observable.just(new Response.Builder().code(200).build());
+        return Observable.empty();
     }
 
     private Observable<String> getStringFromHtml(final String fileName) {
